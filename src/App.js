@@ -6,9 +6,9 @@ function App({ api, auth }) {
   const { loading } = api;
   const { authenticated } = auth;
 
-  if (loading) return 'Loading...';
   if (!authenticated) return <LogInScreen />
-  return <PolicyDetailsScreen />
+  if (authenticated && !loading) return <PolicyDetailsScreen />
+  return null;
 }
 
 export default connect(state => state)(App)

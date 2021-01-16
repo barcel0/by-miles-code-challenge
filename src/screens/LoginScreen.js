@@ -1,12 +1,13 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import { logIn } from '../store/actions/auth';
 import LayoutMain from '../components/LayoutMain';
 import WhiteBox from '../components/WhiteBox';
 import ContentBlock from '../components/ContentBlock';
 import LogInForm from '../components/LogInForm';
+import Error from '../components/Error';
+import LoadingSpinner from '../components/LoadingSpinner';
 
-
-const LogInScreen = () => {
+const LogInScreen = ({ loading }) => {
   const dispatch = useDispatch();
 
   const handleLogIn = (email, password) => {
@@ -15,13 +16,17 @@ const LogInScreen = () => {
 
   return (
     <LayoutMain>
+      <Error />
       <WhiteBox>
-        <ContentBlock title="Sign In">
-          <LogInForm handleLogIn={handleLogIn} />
-        </ContentBlock>
+        {loading ? <LoadingSpinner /> :
+          <ContentBlock title="Sign In">
+            <LogInForm handleLogIn={handleLogIn} />
+          </ContentBlock>
+        }
       </WhiteBox>
     </LayoutMain>
   );
 }
 
-export default LogInScreen;
+
+export default connect(state => state.api)(LogInScreen);
