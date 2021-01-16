@@ -11,4 +11,4 @@ const authReducer = (state = initialState, action) => {
   }
 }
 
-module.exports = authReducer;
+export default authReducer;

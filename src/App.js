@@ -1,11 +1,11 @@
 import { Provider } from 'react-redux';
 import store from './store/store';
-import LoginScreen from './screens/LoginScreen';
+import LogInScreen from './screens/LogInScreen';
 
 function App() {
   return (
     <Provider store={store}>
-      <LoginScreen />
+      <LogInScreen />
     </Provider >
   );
 }
