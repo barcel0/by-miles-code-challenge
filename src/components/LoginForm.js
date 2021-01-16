@@ -6,12 +6,25 @@ const LogInForm = ({ handleLogIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const onSignInClick = () => {
+    if (email.length > 0 && password.length > 0) {
+      handleLogIn(email, password)
+    }
+  }
+
+  const setButtonEnabled = () => {
+    if (email.length > 0 && password.length > 0) return true;
+    return false;
+  }
+
   return (
-    <div>
+    <>
       <Input placeholder="Email" value={email} onChange={setEmail} />
       <Input type="password" placeholder="Passsword" value={password} onChange={setPassword} />
-      <Button label="Sign In" onClick={() => handleLogIn(email, password)} />
-    </div>
+      <div className="flex justify-center">
+        <Button label="Sign In" onClick={onSignInClick} enabled={setButtonEnabled()} />
+      </div>
+    </>
   );
 }
 

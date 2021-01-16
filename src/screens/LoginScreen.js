@@ -10,7 +10,9 @@ const LogInScreen = () => {
   const dispatch = useDispatch();
 
   const handleLogIn = (email, password) => {
-    dispatch(logIn(email, password));
+    if (email.length > 0 && password.length > 0) {
+      dispatch(logIn(email, password));
+    }
   }
 
   return (

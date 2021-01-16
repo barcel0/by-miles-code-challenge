@@ -9,12 +9,13 @@ const PolicyDetailsScreen = ({ policy, vehicle }) => {
   const { make, model, colour, reg } = vehicle;
   const { policy_ref, cover } = policy;
   const { line_1, line_2, postcode } = policy.address;
+  const formattedReference = policy_ref.replace(/-/g, " ");
   const formattedAddress = `${line_1}, ${line_2}, ${postcode}`;
   return (
     <LayoutMain>
       <WhiteBox>
         <ContentBlock title="My Policy">
-          <PolicyDetailsRow title="Policy Reference" content={policy_ref} />
+          <PolicyDetailsRow title="Policy Reference" content={formattedReference} />
           <PolicyDetailsRow title="Cover Type" content={cover} />
           <PolicyDetailsRow title="Car" content={carStringFormatter(make, model, colour, reg)} />
           <PolicyDetailsRow title="Address" content={formattedAddress} />

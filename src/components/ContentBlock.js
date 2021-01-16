@@ -1,7 +1,7 @@
 const ContentBlock = ({ title = '', children }) => {
   return (
     <div className="flex flex-col">
-      <h2 className="font-semibold text-lg border-b">{title}</h2>
+      <h2 className="font-bold text-xl border-b mb-6 tracking-wide">{title}</h2>
       {children}
     </div>
   );
