@@ -1,8 +1,8 @@
 const PolicyDetailsRow = ({ title = '', content = '' }) => {
   return (
     <div className="mb-4">
-      <div className="font-semibold text-gray-400 border-b mb-1">{title}</div>
-      <div className="font-semibold">{content}</div>
+      <div className="policy-details-row-title">{title}</div>
+      <div className="policy-details-row-content">{content}</div>
     </div>
   );
 }

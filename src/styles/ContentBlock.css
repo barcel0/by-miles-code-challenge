@@ -1,0 +1,3 @@
+.content-block-title{
+  @apply font-bold text-xl border-b mb-6 tracking-wide;
+}

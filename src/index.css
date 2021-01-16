@@ -3,6 +3,7 @@
 @import "./styles/ContentBlock.css";
 @import "./styles/Input.css";
 @import "./styles/Button.css";
+@import "./styles/PolicyDetailsRow.css";
 
 @tailwind base;
 @tailwind components;

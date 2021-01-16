@@ -1,0 +1,8 @@
+.policy-details-row-title{
+  @apply font-semibold text-gray-400 border-b mb-1;
+}
+
+.policy-details-row-content{
+  @apply font-semibold;
+}
+

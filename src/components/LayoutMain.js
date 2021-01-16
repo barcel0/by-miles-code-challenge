@@ -1,6 +1,6 @@
 const LayoutMain = ({ children }) => {
   return (
-    <div className="flex justify-center mt-20">
+    <div className="layout-main">
       {children}
     </div>
   );
