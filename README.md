@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+##### By Miles Junior Coding Challenge
+##### Candidate: Luis Barceló
+---------------------------------
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 1. FEASIBILITY STUDY
+  React, free to use other technical stacks or 3rd party libraries, 22nd Jan deadline.
+  
+  Achievable.
 
-## Available Scripts
+### 2. REQUIREMENT ANALYSIS
+  - Use By Bits policy API.
+  - Login screen. Authorization with By Bits API.
+  
+    Content:
+      * Username input
+      * Password input
+      * Sign In btn
 
-In the project directory, you can run:
+  - Policy Details screen. Displayed once authorised through Login screen. 
+  
+    Content:
+      * Policy Reference
+      * Cover type
+      * Car
+      * Address
 
-### `npm start`
+### 3. DESIGN
+ #### 3.1 Logical
+  LoginScreen -> logIn() -> if(authorised) -> PolicyDetailsScreen
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  #### 3.2 Components
+  ##### LOGINSCREEN
+    <LoginScreen>
+      <LayoutMain>
+        error ? <Error /> : null;
+        <WhiteBox>
+          <ContentBlock title="Sign In">
+            <LoginForm />
+              Input text
+              Input password
+              Button Sign In onClick={logIn}
+          <ContentBlock />
+        </WhiteBox>
+      <LayoutMain />
+    <LoginScreen />
+    
+  ##### POLICYDETAILSSCREEN
+    <PolicyDetailsScreen>
+      error ? <Error /> : null;
+      <WhiteBox>
+        <ContentBlock title="My Policy">
+          <PolicyDetailsRow title="Policy Reference" content={policy_ref}/>
+          <PolicyDetailsRow title="Cover Type" content={cover}/>
+          <PolicyDetailsRow title="Car" content={car}/>
+          <PolicyDetailsRow title="Address" content={formattedAddress}/>
+        <ContentBlock />
+      </WhiteBox>
+    </PolicyDetailsScreen>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  #### 3.3 State
+  ##### 3.3.1 Redux
+    error: String || null, default: null
+    authorised: Boolean, default: false
+    token: String || null, default: null 
+    policyDetails: Object || null, default: null
 
-### `npm test`
+      
+  ##### 3.3.2 LoginScreen
+     username: String, default: ''
+     password: String, default: ''
+  
+  #### 3.4 Physical
+  ![wireframe](https://raw.githubusercontent.com/bymiles-tech/tech-challange-junior/master/tech-challange-wireframe.png)
+  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 4. CODE
+See GH Repo. Unit testing should begin here.
+#### 4.1 Code process (orientative)
+1. React boilerplate setup (create-react-app)
+1. Install dependencies (redux, react-redux, redux-thunk)
+1. Install dev dependencies (tailwindcss, autoprefixer, postcss, redux-devtools-extension)
+1. TailWindCSS setup
+1. Redux boilerplate store setup
+1. Create screen component LoginScreen. Mostly “Smart” component
+1. Create components Error, WhiteBox, ContentBlock, LoginForm. Mostly “Dumb” components
+1. Redux LOG_IN_SUCCESS, LOG_IN_FAIL, SET_POLICY_DETAILS, SET_ERROR
+1. Create screen component PolicyDetailsScreen. Mostly “Smart” component
+1. Create components PolicyDetailsRow
+1. CSS Pass (TailwindCSS)
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 5. TEST
+### 6. DEPLOY
+### 7. OPERATE
