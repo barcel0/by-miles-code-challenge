@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk'
+import apiReducer from './reducers/api';
 import authReducer from './reducers/auth';
 import userReducer from './reducers/user';
 
@@ -12,6 +13,7 @@ const bindMiddleware = middleware => {
 }
 
 const rootReducer = combineReducers({
+  api: apiReducer,
   auth: authReducer,
   user: userReducer
 });

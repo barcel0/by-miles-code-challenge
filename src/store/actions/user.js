@@ -1,7 +1,9 @@
+import { setError, setLoading } from '../actions/api';
 export const SET_USER_POLICY_DETAILS = 'SET_USER_POLICY_DETAILS';
 
 export const getUserPolicy = token => async dispatch => {
   try {
+    dispatch(setLoading(true));
     const fetchResponse = await fetch('https://api.bybits.co.uk/policys/details', {
       method: 'GET',
       headers: {
@@ -21,10 +23,11 @@ export const getUserPolicy = token => async dispatch => {
       vehicle: { make, model, colour, reg }
     };
 
-    console.log(policyData);//debug
     dispatch({ type: SET_USER_POLICY_DETAILS, payload: policyData });
+    dispatch(setLoading(false));
   } catch (err) {
-    console.log(err); //error handling pending
+    dispatch(setError('Something went wrong getting policy details.'))
+    dispatch(setLoading(false));
   }
 }
 
