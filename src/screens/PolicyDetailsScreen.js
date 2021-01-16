@@ -1,18 +1,27 @@
+import { connect } from 'react-redux';
+import { carStringFormatter } from '../helpers/carStringFormatter';
 import LayoutMain from '../components/LayoutMain';
 import WhiteBox from '../components/WhiteBox';
 import ContentBlock from '../components/ContentBlock';
+import PolicyDetailsRow from '../components/PolicyDetailsRow';
 
-
-const PolicyDetailsScreen = () => {
+const PolicyDetailsScreen = ({ policy, vehicle }) => {
+  const { make, model, colour, reg } = vehicle;
+  const { policy_ref, cover } = policy;
+  const { line_1, line_2, postcode } = policy.address;
+  const formattedAddress = `${line_1}, ${line_2}, ${postcode}`;
   return (
     <LayoutMain>
       <WhiteBox>
         <ContentBlock title="My Policy">
-          details
-         </ContentBlock>
+          <PolicyDetailsRow title="Policy Reference" content={policy_ref} />
+          <PolicyDetailsRow title="Cover Type" content={cover} />
+          <PolicyDetailsRow title="Car" content={carStringFormatter(make, model, colour, reg)} />
+          <PolicyDetailsRow title="Address" content={formattedAddress} />
+        </ContentBlock>
       </WhiteBox>
     </LayoutMain>
   );
 }
 
-export default PolicyDetailsScreen;
+export default connect(state => state.user.policyDetails)(PolicyDetailsScreen);

@@ -1,16 +1,14 @@
-import { Provider, connect } from 'react-redux';
-import store from './store/store';
+import { connect } from 'react-redux';
 import LogInScreen from './screens/LogInScreen';
+import PolicyDetailsScreen from './screens/PolicyDetailsScreen';
 
 function App({ api, auth }) {
   const { loading } = api;
   const { authenticated } = auth;
-  return (
-    // <Provider store={store}>
-    <LogInScreen />
-    // </Provider >
-  );
+
+  if (loading) return 'Loading...';
+  if (!authenticated) return <LogInScreen />
+  return <PolicyDetailsScreen />
 }
 
-// export default App;
 export default connect(state => state)(App)
