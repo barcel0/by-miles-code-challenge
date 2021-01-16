@@ -6,7 +6,7 @@ export const LOG_IN_FAIL = 'LOG_IN_FAIL';
 export const logIn = (email, password) => async dispatch => {
   try {
     dispatch(setLoading(true));
-    const fetchResponse = await fetch('https://api.byxxxbits.co.uk/auth/token', {
+    const fetchResponse = await fetch('https://api.bybits.co.uk/auth/token', {
       method: 'POST',
       headers: {
         'environment': 'mock',
