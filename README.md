@@ -89,7 +89,15 @@ See GH Repo. Unit testing should begin here.
 1. CSS Pass (TailwindCSS)
 
 ### 5. TEST
-  NOTE ON UNIT TESTING: Despite having done a basic TDD tutorial, it was a while ago and I have mostly forgotten it (I even think it wasn't JS but Python or Ruby TDD). As an architect with commercial experience, I acknowledge the importance of planning ahead and preventing potential flaws, as it can mean a significant future save up in resources (time, energy, money, etc). I'm currently finishing a second version of a personal project (traderscmt.com), an opportunity I'm using for learning NextJS. Once done with it, hopefully in a few days, I'm planning to give a go to Jest.
+  NOTE ON TESTING: Despite having done a basic TDD tutorial, it was a while ago and I have mostly forgotten it (I even think it wasn't JS but Python or Ruby TDD). As an architect with commercial experience, I acknowledge the importance of planning ahead and preventing potential flaws, as it can mean a significant future save up in resources (time, energy, money, etc). I'm currently finishing a second version of a personal project (traderscmt.com), an opportunity I'm using for learning NextJS. Once done with it, hopefully in a few days, I'm planning to give a go to Jest.
+
+  ##### Initial scenarios:
+    Login with username and password (POST request): API returns user data, store access_token, set authenticated:true
+    Login with username and no password: SignIn button disabled. (API still returns user data, backend issue)
+    Login with password and no username: SignIn button disabled. (API still returns user data, backend issue)
+    Login with no password nor username: SignIn button disabled. (API still returns user data, backend issue)
+    With access_token, GET request to API: API returns user policy details, set loading:false, show PolicyDetailsScreen
+    API error: Display Error component, set authenticated:false, loading: false, token:null
 
 ### 6. DEPLOY
 ### 7. OPERATE
