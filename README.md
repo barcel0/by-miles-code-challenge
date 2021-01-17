@@ -100,4 +100,7 @@ See GH Repo. Unit testing should begin here.
     API error: Display Error component, set authenticated:false, loading: false, token:null
 
 ### 6. DEPLOY
+  Deployed in Netlify
+  Demo: https://by-miles-code-challenge.netlify.app/
+  
 ### 7. OPERATE
