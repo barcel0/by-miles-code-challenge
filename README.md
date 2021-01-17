@@ -101,6 +101,7 @@ See GH Repo. Unit testing should begin here.
 
 ### 6. DEPLOY
   Deployed in Netlify
-  Demo: https://by-miles-code-challenge.netlify.app/
   
+  Demo: https://by-miles-code-challenge.netlify.app/
+
 ### 7. OPERATE
