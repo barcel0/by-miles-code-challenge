@@ -4,7 +4,6 @@ import LayoutMain from '../components/LayoutMain';
 import WhiteBox from '../components/WhiteBox';
 import ContentBlock from '../components/ContentBlock';
 import PolicyDetailsRow from '../components/PolicyDetailsRow';
-import LoadingSpinner from '../components/LoadingSpinner';
 
 const PolicyDetailsScreen = ({ policy, vehicle }) => {
   const { make, model, colour, reg } = vehicle;
