@@ -89,5 +89,7 @@ See GH Repo. Unit testing should begin here.
 1. CSS Pass (TailwindCSS)
 
 ### 5. TEST
+  NOTE ON UNIT TESTING: Despite having done a basic TDD tutorial, it was a while ago and I have mostly forgotten it (I even think it wasn't JS but Python or Ruby TDD). As an architect with commercial experience, I acknowledge the importance of planning ahead and preventing potential flaws, as it can mean a significant future save up in resources (time, energy, money, etc). I'm currently finishing a second version of a personal project (traderscmt.com), an opportunity I'm using for learning NextJS. Once done with it, hopefully in a few days, I'm planning to give a go to Jest.
+
 ### 6. DEPLOY
 ### 7. OPERATE
